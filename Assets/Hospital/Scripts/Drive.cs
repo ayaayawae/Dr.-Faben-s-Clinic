@@ -25,12 +25,12 @@ public class Drive : MonoBehaviour
         if (translation != 0)
         {
             anim.SetBool("isWalking", true);
-            anim.SetFloat("characterSpeed", translation);
+            // anim.SetFloat("characterSpeed", translation);
         }
         else
         {
             anim.SetBool("isWalking", false);
-            anim.SetFloat("characterSpeed", 0);
+            // anim.SetFloat("characterSpeed", 0);
         }
     }
 
