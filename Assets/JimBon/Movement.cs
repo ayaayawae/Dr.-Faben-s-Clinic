@@ -16,23 +16,17 @@ public class Movement : MonoBehaviour
 
     int onProgress = 3;
     int totalRoom = 9; // Ini 8
+    
 
     public Text MoneyText;
-
     int MoneyValue;
-    private Money moneyCs;
-    public GameObject moneyObj;
-    int MoneyPlus;
-
+    int MoneyPlus = 10;
     int speed = 3;
 
     public Animator door1, door2, door3, door4, door5, door6, door7, door8;
 
     void Start()
     {
-        moneyCs = moneyObj.GetComponent<Money>();
-        MoneyPlus = moneyCs.MoneyPlus;
-
         room = Random.Range(1, totalRoom);
         transform.localPosition = new Vector3(-0.3009744f, 1.55f, -20.11f);
         transform.rotation = Quaternion.identity;
