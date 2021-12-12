@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour
     bool firstTurnExit = false;
 
     int onProgress = 3;
-    public int totalRoom = 9; // Total room - 1
+    
 
     public Text MoneyText;
 
@@ -23,6 +23,9 @@ public class Movement : MonoBehaviour
     private Money moneyCs;
     public GameObject moneyObj;
     int MoneyPlus;
+
+    public GameObject gameManagerObj;
+    public int totalRoom; // Total room - 1
 
     public int speed = 3;
 
@@ -33,6 +36,7 @@ public class Movement : MonoBehaviour
         moneyCs = moneyObj.GetComponent<Money>();
         MoneyPlus = moneyCs.MoneyPlus;
 
+        totalRoom = gameManagerObj.GetComponent<GameManager>().totalRoom;
         room = Random.Range(1, totalRoom);
         transform.localPosition = new Vector3(-0.3009744f, 1.55f, -20.11f);
         transform.rotation = Quaternion.identity;

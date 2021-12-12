@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     private PeopleSpawner peopleSpawnerCs;
     private Money moneyCs;
 
+    public int totalRoom = 9;
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +28,6 @@ public class GameManager : MonoBehaviour
         moneyPerSecond = moneyCs.MoneyPerSecond;
 
         timeBetweenSpawns = peopleSpawnerCs.timeBetweenSpawns;
-        
     }
 
     // Update is called once per frame

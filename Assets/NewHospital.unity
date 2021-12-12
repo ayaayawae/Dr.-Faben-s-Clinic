@@ -13029,9 +13029,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfeceb593c5ec9b4b92f9d1cd258810d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalRoom: 9
   MoneyText: {fileID: 1018231780}
   moneyObj: {fileID: 1018231777}
+  gameManagerObj: {fileID: 1536266703}
+  totalRoom: 9
   speed: 3
   door1: {fileID: 1016205507}
   door2: {fileID: 1293773885}
@@ -15500,9 +15501,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfeceb593c5ec9b4b92f9d1cd258810d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalRoom: 9
   MoneyText: {fileID: 1018231780}
   moneyObj: {fileID: 1018231777}
+  gameManagerObj: {fileID: 1536266703}
+  totalRoom: 9
   speed: 3
   door1: {fileID: 1016205507}
   door2: {fileID: 1293773885}
@@ -16525,9 +16527,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfeceb593c5ec9b4b92f9d1cd258810d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalRoom: 9
   MoneyText: {fileID: 1018231780}
   moneyObj: {fileID: 1018231777}
+  gameManagerObj: {fileID: 1536266703}
+  totalRoom: 9
   speed: 3
   door1: {fileID: 1016205507}
   door2: {fileID: 1293773885}
@@ -16554,9 +16557,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfeceb593c5ec9b4b92f9d1cd258810d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalRoom: 9
   MoneyText: {fileID: 1018231780}
   moneyObj: {fileID: 1018231777}
+  gameManagerObj: {fileID: 1536266703}
+  totalRoom: 9
   speed: 3
   door1: {fileID: 1016205507}
   door2: {fileID: 1293773885}
@@ -24447,9 +24451,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfeceb593c5ec9b4b92f9d1cd258810d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalRoom: 9
   MoneyText: {fileID: 1018231780}
   moneyObj: {fileID: 1018231777}
+  gameManagerObj: {fileID: 1536266703}
+  totalRoom: 9
   speed: 3
   door1: {fileID: 1016205507}
   door2: {fileID: 1293773885}
@@ -25765,9 +25770,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfeceb593c5ec9b4b92f9d1cd258810d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalRoom: 9
   MoneyText: {fileID: 1018231780}
   moneyObj: {fileID: 1018231777}
+  gameManagerObj: {fileID: 1536266703}
+  totalRoom: 9
   speed: 3
   door1: {fileID: 1016205507}
   door2: {fileID: 1293773885}
@@ -26543,9 +26549,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfeceb593c5ec9b4b92f9d1cd258810d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalRoom: 1
   MoneyText: {fileID: 1018231780}
   moneyObj: {fileID: 1018231777}
+  gameManagerObj: {fileID: 0}
+  totalRoom: 1
   speed: 3
   door1: {fileID: 1016205507}
   door2: {fileID: 1293773885}
@@ -33934,9 +33941,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfeceb593c5ec9b4b92f9d1cd258810d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalRoom: 9
   MoneyText: {fileID: 1018231780}
   moneyObj: {fileID: 1018231777}
+  gameManagerObj: {fileID: 1536266703}
+  totalRoom: 9
   speed: 3
   door1: {fileID: 1016205507}
   door2: {fileID: 1293773885}
@@ -36672,6 +36680,7 @@ MonoBehaviour:
   moneyPerSecond: 0
   peopleSpawnerObj: {fileID: 256814530}
   timeBetweenSpawns: 0
+  totalRoom: 9
 --- !u!4 &1536266705
 Transform:
   m_ObjectHideFlags: 0
