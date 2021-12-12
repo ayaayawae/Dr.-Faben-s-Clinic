@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour
     bool firstTurnExit = false;
 
     int onProgress = 3;
-    int totalRoom = 9; // Ini 8
+    public int totalRoom = 1; // Ini 8
 
     public Text MoneyText;
 
@@ -24,7 +24,7 @@ public class Movement : MonoBehaviour
     public GameObject moneyObj;
     int MoneyPlus;
 
-    int speed = 3;
+    public int speed = 3;
 
     public Animator door1, door2, door3, door4, door5, door6, door7, door8;
 

@@ -7,7 +7,6 @@ public class PeopleSpawner : MonoBehaviour
     public float timeBetweenSpawns;
     float spawnDistance = 0.0f;
     public GameObject[] people;
-    public
     float timeSinceLastSpawn;
     private int i = 0;
 
