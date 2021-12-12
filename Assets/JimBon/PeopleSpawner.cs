@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Random;
 
 public class PeopleSpawner : MonoBehaviour
 {
@@ -34,7 +35,8 @@ public class PeopleSpawner : MonoBehaviour
 
     void SpawnPeople()
     {
-        GameObject prefab = people[0];
+        int tmp = Random.Range(0, 7);
+        GameObject prefab = people[tmp];
         GameObject spawn = Instantiate<GameObject>(prefab);
         spawn.name = "People " + i;
         spawn.SetActive(true);

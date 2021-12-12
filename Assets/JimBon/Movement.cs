@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour
     bool firstTurnExit = false;
 
     int onProgress = 3;
-    public int totalRoom = 1; // Ini 8
+    public int totalRoom = 9; // Total room - 1
 
     public Text MoneyText;
 
@@ -55,6 +55,7 @@ public class Movement : MonoBehaviour
     }
 
     public void OnTriggerEnter (Collider col){
+        Debug.Log("sini");
         if(!begin && !firstTurnExit){
             if(room < 5){
                     transform.Rotate(0.0f, 90.0f, 0.0f, Space.Self);
