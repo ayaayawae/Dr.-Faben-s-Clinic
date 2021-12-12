@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     // private PeopleSpawner peopleSpawnerCs;
     private Money moneyCs;
 
-    public int totalRoom = 9;
+    public int totalRoom = 1;
 
 
     // Start is called before the first frame update

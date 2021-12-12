@@ -12,13 +12,20 @@ public class Money : MonoBehaviour
     private int price;
     public Text MoneyText;
     private string assetName;
+    public GameObject[] roomCover;
 
     protected float Timer;
+    private int totalRoom;
+    public GameObject gameManagerObj;
+    private GameManager gameManagerCS;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManagerCS = gameManagerObj.GetComponent<GameManager>();
         // MoneyValue = int.Parse(MoneyText.text);
+        
     }
 
     // Update is called once per frame
@@ -37,6 +44,10 @@ public class Money : MonoBehaviour
             Debug.Log("Uang Cukup");
             MoneyValue -= price;
             MoneyText.text = MoneyValue.ToString();
+            if(gameManagerCS.totalRoom != 8){
+                roomCover[gameManagerCS.totalRoom-1].SetActive(false);
+                gameManagerCS.totalRoom += 1;
+            }
         }
     }
 

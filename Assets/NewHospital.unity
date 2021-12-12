@@ -15052,7 +15052,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &572204555
 Transform:
   m_ObjectHideFlags: 0
@@ -16833,7 +16833,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &677407974
 Transform:
   m_ObjectHideFlags: 0
@@ -19195,7 +19195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &761380487
 Transform:
   m_ObjectHideFlags: 0
@@ -24977,6 +24977,15 @@ MonoBehaviour:
   MoneyPerSecond: 1
   DelayAmount: 1
   MoneyText: {fileID: 1018231780}
+  roomCover:
+  - {fileID: 1816120507}
+  - {fileID: 677407973}
+  - {fileID: 1036800637}
+  - {fileID: 1784657858}
+  - {fileID: 1272595725}
+  - {fileID: 761380486}
+  - {fileID: 572204554}
+  gameManagerObj: {fileID: 1536266703}
 --- !u!114 &1018231780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25294,7 +25303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1036800638
 Transform:
   m_ObjectHideFlags: 0
@@ -30538,7 +30547,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1272595726
 Transform:
   m_ObjectHideFlags: 0
@@ -36922,7 +36931,7 @@ MonoBehaviour:
   moneyPerSecond: 0
   peopleSpawnerObj: {fileID: 256814530}
   timeBetweenSpawns: 5
-  totalRoom: 2
+  totalRoom: 1
 --- !u!4 &1536266705
 Transform:
   m_ObjectHideFlags: 0
@@ -42495,7 +42504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1784657859
 Transform:
   m_ObjectHideFlags: 0
@@ -43293,7 +43302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1816120508
 Transform:
   m_ObjectHideFlags: 0
