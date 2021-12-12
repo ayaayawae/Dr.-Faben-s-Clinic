@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
     int MoneyPlus;
 
     public GameObject gameManagerObj;
-    public int totalRoom; // Total room - 1
+    private int totalRoom;
 
     public int speed = 3;
 
@@ -36,7 +36,7 @@ public class Movement : MonoBehaviour
         moneyCs = moneyObj.GetComponent<Money>();
         MoneyPlus = moneyCs.MoneyPlus;
 
-        totalRoom = gameManagerObj.GetComponent<GameManager>().totalRoom;
+        totalRoom = gameManagerObj.GetComponent<GameManager>().totalRoom + 1;
         room = Random.Range(1, totalRoom);
         transform.localPosition = new Vector3(-0.3009744f, 1.55f, -20.11f);
         transform.rotation = Quaternion.identity;
@@ -59,7 +59,6 @@ public class Movement : MonoBehaviour
     }
 
     public void OnTriggerEnter (Collider col){
-        Debug.Log("sini");
         if(!begin && !firstTurnExit){
             if(room < 5){
                     transform.Rotate(0.0f, 90.0f, 0.0f, Space.Self);

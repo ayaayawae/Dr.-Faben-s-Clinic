@@ -6992,7 +6992,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6178b9393f0c7fb49826b088d415b927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenSpawns: 5
   people:
   - {fileID: 597146050}
   - {fileID: 1432374479}
@@ -7001,6 +7000,7 @@ MonoBehaviour:
   - {fileID: 663689903}
   - {fileID: 653245148}
   - {fileID: 1063154217}
+  gameManagerObj: {fileID: 1536266703}
 --- !u!4 &256814532
 Transform:
   m_ObjectHideFlags: 0
@@ -13032,7 +13032,6 @@ MonoBehaviour:
   MoneyText: {fileID: 1018231780}
   moneyObj: {fileID: 1018231777}
   gameManagerObj: {fileID: 1536266703}
-  totalRoom: 9
   speed: 3
   door1: {fileID: 1016205507}
   door2: {fileID: 1293773885}
@@ -15504,7 +15503,6 @@ MonoBehaviour:
   MoneyText: {fileID: 1018231780}
   moneyObj: {fileID: 1018231777}
   gameManagerObj: {fileID: 1536266703}
-  totalRoom: 9
   speed: 3
   door1: {fileID: 1016205507}
   door2: {fileID: 1293773885}
@@ -16530,7 +16528,6 @@ MonoBehaviour:
   MoneyText: {fileID: 1018231780}
   moneyObj: {fileID: 1018231777}
   gameManagerObj: {fileID: 1536266703}
-  totalRoom: 9
   speed: 3
   door1: {fileID: 1016205507}
   door2: {fileID: 1293773885}
@@ -16560,7 +16557,6 @@ MonoBehaviour:
   MoneyText: {fileID: 1018231780}
   moneyObj: {fileID: 1018231777}
   gameManagerObj: {fileID: 1536266703}
-  totalRoom: 9
   speed: 3
   door1: {fileID: 1016205507}
   door2: {fileID: 1293773885}
@@ -24454,7 +24450,6 @@ MonoBehaviour:
   MoneyText: {fileID: 1018231780}
   moneyObj: {fileID: 1018231777}
   gameManagerObj: {fileID: 1536266703}
-  totalRoom: 9
   speed: 3
   door1: {fileID: 1016205507}
   door2: {fileID: 1293773885}
@@ -25773,7 +25768,6 @@ MonoBehaviour:
   MoneyText: {fileID: 1018231780}
   moneyObj: {fileID: 1018231777}
   gameManagerObj: {fileID: 1536266703}
-  totalRoom: 9
   speed: 3
   door1: {fileID: 1016205507}
   door2: {fileID: 1293773885}
@@ -26552,7 +26546,6 @@ MonoBehaviour:
   MoneyText: {fileID: 1018231780}
   moneyObj: {fileID: 1018231777}
   gameManagerObj: {fileID: 0}
-  totalRoom: 1
   speed: 3
   door1: {fileID: 1016205507}
   door2: {fileID: 1293773885}
@@ -33944,7 +33937,6 @@ MonoBehaviour:
   MoneyText: {fileID: 1018231780}
   moneyObj: {fileID: 1018231777}
   gameManagerObj: {fileID: 1536266703}
-  totalRoom: 9
   speed: 3
   door1: {fileID: 1016205507}
   door2: {fileID: 1293773885}
@@ -36679,8 +36671,8 @@ MonoBehaviour:
   moneyPlus: 0
   moneyPerSecond: 0
   peopleSpawnerObj: {fileID: 256814530}
-  timeBetweenSpawns: 0
-  totalRoom: 9
+  timeBetweenSpawns: 5
+  totalRoom: 2
 --- !u!4 &1536266705
 Transform:
   m_ObjectHideFlags: 0

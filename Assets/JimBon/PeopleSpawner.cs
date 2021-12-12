@@ -5,16 +5,18 @@ using static UnityEngine.Random;
 
 public class PeopleSpawner : MonoBehaviour
 {
-    public float timeBetweenSpawns;
+    private float timeBetweenSpawns;
     float spawnDistance = 0.0f;
     public GameObject[] people;
     float timeSinceLastSpawn;
     private int i = 0;
+    public GameObject gameManagerObj;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        timeBetweenSpawns = gameManagerObj.GetComponent<GameManager>().timeBetweenSpawns;
     }
 
     // Update is called once per frame

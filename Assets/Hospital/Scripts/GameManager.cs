@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject peopleSpawnerObj;
     public float timeBetweenSpawns;
 
-    private PeopleSpawner peopleSpawnerCs;
+    // private PeopleSpawner peopleSpawnerCs;
     private Money moneyCs;
 
     public int totalRoom = 9;
@@ -21,13 +21,13 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         moneyCs = moneyObj.GetComponent<Money>();
-        peopleSpawnerCs = peopleSpawnerObj.GetComponent<PeopleSpawner>();
+        // peopleSpawnerCs = peopleSpawnerObj.GetComponent<PeopleSpawner>();
 
         moneyValue = moneyCs.MoneyValue;
         moneyPlus = moneyCs.MoneyPlus;
         moneyPerSecond = moneyCs.MoneyPerSecond;
 
-        timeBetweenSpawns = peopleSpawnerCs.timeBetweenSpawns;
+        // timeBetweenSpawns = peopleSpawnerCs.timeBetweenSpawns;
     }
 
     // Update is called once per frame
@@ -47,6 +47,6 @@ public class GameManager : MonoBehaviour
     }
 
     void peopleSpawnerManager() {
-        peopleSpawnerCs.timeBetweenSpawns = timeBetweenSpawns;
+        // peopleSpawnerCs.timeBetweenSpawns = timeBetweenSpawns;
     }
 }
