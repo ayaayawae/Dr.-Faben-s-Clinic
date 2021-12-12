@@ -18,6 +18,7 @@ public class Money : MonoBehaviour
     private int totalRoom;
     public GameObject gameManagerObj;
     private GameManager gameManagerCS;
+    public GameObject menuUpgrade;
 
 
     // Start is called before the first frame update
@@ -45,11 +46,19 @@ public class Money : MonoBehaviour
             MoneyValue -= price;
             MoneyText.text = MoneyValue.ToString();
             if(gameManagerCS.totalRoom != 8){
-                roomCover[gameManagerCS.totalRoom-1].SetActive(false);
-                gameManagerCS.totalRoom += 1;
+                StartCoroutine(unlockRoom());
             }
         }
     }
+
+    IEnumerator unlockRoom(){
+        Animator anim = menuUpgrade.GetComponent<Animator>();
+        anim.SetBool("isMenuShow", false);
+        yield return new WaitForSeconds(1.5f);
+        roomCover[gameManagerCS.totalRoom-1].SetActive(false);
+        gameManagerCS.totalRoom += 1;
+    }
+
 
     void increaseMoneyPS() {
         Timer += Time.deltaTime;
@@ -61,4 +70,14 @@ public class Money : MonoBehaviour
             MoneyText.text = MoneyValue.ToString();
         }
     }
+    
+    // IEnumerator fadeRoomAnimation(){
+    //     for(float i = 1.0f; i > 0; i -= 0.1f){
+    //         roomCover[gameManagerCS.totalRoom-1].transform.GetChild(0).GetComponent<MeshRenderer>().material.color = new Color(0, 0, 0, i);
+    //         Debug.Log(i);
+    //         yield return new WaitForSeconds(0.5f);
+    //     }
+    //     roomCover[gameManagerCS.totalRoom-1].SetActive(false);
+    //     gameManagerCS.totalRoom += 1;
+    // }
 }

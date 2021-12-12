@@ -17,7 +17,6 @@ public class LampOnOff : MonoBehaviour
     {
 
         var xRotation = Sun.transform.eulerAngles.x;
-        Debug.Log(xRotation);
         
         if (xRotation > 270 && xRotation < 360) {
             myLight.enabled = true;
