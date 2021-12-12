@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public Slider timeScaleSlider;
+
     public GameObject moneyObj;
     public int moneyValue, moneyPlus, moneyPerSecond;
 
@@ -34,7 +36,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         moneyManager();
-        peopleSpawnerManager();
     }
 
     void moneyManager() {
@@ -46,7 +47,7 @@ public class GameManager : MonoBehaviour
         moneyCs.MoneyPerSecond = moneyPerSecond;
     }
 
-    void peopleSpawnerManager() {
-        // peopleSpawnerCs.timeBetweenSpawns = timeBetweenSpawns;
+    public void timeScaleChange() {
+        Time.timeScale = timeScaleSlider.value;
     }
 }
