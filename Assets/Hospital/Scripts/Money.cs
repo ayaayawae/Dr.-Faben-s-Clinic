@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class Money : MonoBehaviour
 {
-    private int MoneyValue, price;
+    public int MoneyValue;
     public int MoneyPlus;
     public int MoneyPerSecond;
     public int DelayAmount = 1;
+    private int price;
     public Text MoneyText;
     private string assetName;
 

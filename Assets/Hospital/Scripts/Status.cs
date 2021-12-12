@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class Status : MonoBehaviour
 {
-    private Money moneyCs;
+    public Money moneyCs;
     public GameObject moneyObj;
-    private Text moneyPsText, moneyPlus;
+    public Text moneyPsText, moneyPlus;
 
     // Start is called before the first frame update
     void Start()
