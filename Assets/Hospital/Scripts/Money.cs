@@ -55,6 +55,8 @@ public class Money : MonoBehaviour
         Animator anim = menuUpgrade.GetComponent<Animator>();
         anim.SetBool("isMenuShow", false);
         yield return new WaitForSeconds(1.5f);
+        // roomCover[gameManagerCS.totalRoom-1].GetComponent<Animator>().SetTrigger("unlock");
+        // yield return new WaitForSeconds(2f);
         roomCover[gameManagerCS.totalRoom-1].SetActive(false);
         gameManagerCS.totalRoom += 1;
     }
