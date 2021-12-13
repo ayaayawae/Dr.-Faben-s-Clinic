@@ -125,6 +125,7 @@ public class Movement : MonoBehaviour
             break;
             case 8: door8.SetTrigger("open");
             break;
+            default: break;
         }
         // door1.SetBool("open", false);
     }

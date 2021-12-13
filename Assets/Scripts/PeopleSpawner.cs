@@ -16,13 +16,14 @@ public class PeopleSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timeBetweenSpawns = gameManagerObj.GetComponent<GameManager>().timeBetweenSpawns;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        timeBetweenSpawns = gameManagerObj.GetComponent<GameManager>().timeBetweenSpawns;
+        Debug.Log(timeBetweenSpawns);
     }
     
     void FixedUpdate()
