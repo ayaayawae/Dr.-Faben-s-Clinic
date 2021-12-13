@@ -12,6 +12,7 @@ public class Money : MonoBehaviour
     public Text MoneyText;
     public GameObject[] roomCover;
     private int price;
+    private string priceText;
     private string assetName;
 
     protected float Timer;
@@ -32,7 +33,6 @@ public class Money : MonoBehaviour
         gameManagerCS = gameManagerObj.GetComponent<GameManager>();
         eventSystem = GameObject.Find("EventSystem");
         // MoneyValue = int.Parse(MoneyText.text);
-        
     }
 
     // Update is called once per frame
@@ -50,42 +50,35 @@ public class Money : MonoBehaviour
             Debug.Log(assetName);
         } else {
             Debug.Log("Uang Cukup");
-            MoneyValue -= price;
-            MoneyText.text = MoneyValue.ToString();
             switch(assetName){
-                case "Tambah Kamar": upgradeTambahKamar(asset);
+                case "Tambah Kamar": upgradeTambahKamar(asset, price);
                 break;
                 
-                case "Ruangan 1": StartCoroutine(upgradeLevelKamar(0));
+                case "Ruangan 1": StartCoroutine(upgradeLevelKamar(0, price, asset));
                 break;
                 
-                case "Ruangan 2": StartCoroutine(upgradeLevelKamar(1));
+                case "Ruangan 2": StartCoroutine(upgradeLevelKamar(1, price, asset));
                 break;
                 
-                case "Ruangan 3": StartCoroutine(upgradeLevelKamar(2));
+                case "Ruangan 3": StartCoroutine(upgradeLevelKamar(2, price, asset));
                 break;
                 
-                case "Ruangan 4": StartCoroutine(upgradeLevelKamar(3));
+                case "Ruangan 4": StartCoroutine(upgradeLevelKamar(3, price, asset));
                 break;
                 
-                case "Ruangan 5": StartCoroutine(upgradeLevelKamar(4));
+                case "Ruangan 5": StartCoroutine(upgradeLevelKamar(4, price, asset));
                 break;
                 
-                case "Ruangan 6": StartCoroutine(upgradeLevelKamar(5));
+                case "Ruangan 6": StartCoroutine(upgradeLevelKamar(5, price, asset));
                 break;
             
-                case "Ruangan 7": StartCoroutine(upgradeLevelKamar(6));
+                case "Ruangan 7": StartCoroutine(upgradeLevelKamar(6, price, asset));
                 break;
 
-                case "Ruangan 8": StartCoroutine(upgradeLevelKamar(7));
+                case "Ruangan 8": StartCoroutine(upgradeLevelKamar(7, price, asset));
                 break;
             }
-
-            // if(assetName == "Tambah Kamar") {
-            //     upgradeTambahKamar(asset);
-            // } else if(assetName == "Ruangan 1") {
-
-            // }
+            MoneyText.text = MoneyValue.ToString();
         }
     }
 
@@ -114,12 +107,24 @@ public class Money : MonoBehaviour
         }
     }
 
-    void upgradeTambahKamar(GameObject asset) {
+    void upgradeTambahKamar(GameObject asset, int price) {
         if(gameManagerCS.totalRoom < 8){
+            MoneyValue -= price;
             StartCoroutine(unlockRoom());
-            gameManagerCS.moneyPerSecond += 5;
+
+            priceText = asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text;
+            price = int.Parse(priceText.ToString());
+            price *= 2;
+
+            asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text = price.ToString();
+
+            enableCard(asset);
+            // asset.transform.parent.GetChild(gameManagerCS.totalRoom).GetChild(0).GetComponent<Image>().color = new Color();
+
+            // gameManagerCS.moneyPerSecond += 5;
+
             if(gameManagerCS.totalRoom == 8) {
-                disableCard(asset); 
+                maxCard(asset); 
             }
         }
     }
@@ -132,11 +137,30 @@ public class Money : MonoBehaviour
         cardImageBg.color = Color.gray;
     }
 
-    IEnumerator upgradeLevelKamar(int idKamar){ //0
+    void enableCard(GameObject asset) {
+        cardButton = asset.transform.parent.GetChild(gameManagerCS.totalRoom + 1).GetComponent<Button>();
+        cardButton.interactable = true;
+
+        cardImageBg = asset.transform.parent.GetChild(gameManagerCS.totalRoom + 1).GetChild(0).GetComponent<Image>();
+        cardImageBg.color = new Color(1f, 0.5f, 0.5f, 1f);
+    }
+
+    void maxCard(GameObject asset) {
+        cardButton = asset.GetComponent<Button>();
+        cardButton.interactable = false;
+
+        cardImageBg = asset.transform.GetChild(0).GetComponent<Image>();
+        cardImageBg.color = new Color(0f, 0.7f, 0f, 1f);
+    }
+    
+
+    IEnumerator upgradeLevelKamar(int idKamar, int price, GameObject asset){ //0
         int level = gameManagerCS.roomLevel[idKamar];
 
         if(level < 3 && gameManagerCS.totalRoom >= idKamar+1){
             Debug.Log("sini");
+            MoneyValue -= price; 
+
             eventSystem.SetActive(false);
             Animator anim = menuUpgrade.GetComponent<Animator>();
             anim.SetBool("isMenuShow", false);
@@ -145,6 +169,10 @@ public class Money : MonoBehaviour
             room[idKamar].transform.GetChild(level-1).gameObject.GetComponent<Animator>().SetTrigger("fall");
             gameManagerCS.roomLevel[idKamar] += 1;
             eventSystem.SetActive(true);
+
+            if(gameManagerCS.roomLevel[idKamar] == 3) {
+                maxCard(asset);
+            }
         }else{
             Debug.Log("Ruangan belum terbuka atau sudah mentok level");
         }
