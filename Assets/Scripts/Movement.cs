@@ -60,12 +60,7 @@ public class Movement : MonoBehaviour
 
     public void OnTriggerEnter (Collider col){
         if(!begin && !firstTurnExit){
-            if(room < 5){
-                    transform.Rotate(0.0f, 90.0f, 0.0f, Space.Self);
-                }else{
-                    transform.Rotate(0.0f, -90.0f, 0.0f, Space.Self);
-                }
-            firstTurnExit = true;
+            StartCoroutine(goToExit());
         }else{
             if(room.ToString() == col.gameObject.name){
                 toggleDoor(room);
@@ -82,8 +77,18 @@ public class Movement : MonoBehaviour
         }
     }
 
-    IEnumerator onDoctor()
-    {
+    IEnumerator goToExit(){
+        if(room < 5){
+                yield return new WaitForSeconds(0.5f);
+                transform.Rotate(0.0f, 90.0f, 0.0f, Space.Self);
+            }else{
+                yield return new WaitForSeconds(0.5f);
+                transform.Rotate(0.0f, -90.0f, 0.0f, Space.Self);
+            }
+        firstTurnExit = true;
+    }
+
+    IEnumerator onDoctor(){
         yield return new WaitForSeconds(onProgress);
         MoneyValue = int.Parse(MoneyText.text);
         MoneyValue += MoneyPlus;
@@ -120,4 +125,6 @@ public class Movement : MonoBehaviour
         }
         // door1.SetBool("open", false);
     }
+
+    
 }
