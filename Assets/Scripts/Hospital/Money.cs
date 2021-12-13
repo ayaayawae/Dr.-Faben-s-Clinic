@@ -116,14 +116,19 @@ public class Money : MonoBehaviour
             price = int.Parse(priceText.ToString());
             price *= 2;
 
+            //increase price
             asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text = price.ToString();
 
-            enableCard(asset);
-            // asset.transform.parent.GetChild(gameManagerCS.totalRoom).GetChild(0).GetComponent<Image>().color = new Color();
+            //increase level
+            asset.transform.GetChild(0).GetChild(2).GetChild(0).GetComponent<Text>().text = "Level : " + gameManagerCS.totalRoom.ToString();
 
+            enableCard(asset);
+            
             // gameManagerCS.moneyPerSecond += 5;
 
             if(gameManagerCS.totalRoom == 8) {
+                asset.transform.GetChild(0).GetChild(2).GetChild(0).GetComponent<Text>().text = "Level : MAX";
+                asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text = "MAX";
                 maxCard(asset); 
             }
         }
@@ -172,6 +177,7 @@ public class Money : MonoBehaviour
 
             if(gameManagerCS.roomLevel[idKamar] == 3) {
                 maxCard(asset);
+                asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text = "MAX";
             }
         }else{
             Debug.Log("Ruangan belum terbuka atau sudah mentok level");
