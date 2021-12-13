@@ -11,7 +11,7 @@ public class Money : MonoBehaviour
     public int DelayAmount = 1;
     public Text MoneyText;
     public GameObject[] roomCover;
-    private int price, lvl, MPS;
+    private int price, lvl, MPS, MPP;
     private string priceText;
     private string assetName;
 
@@ -55,6 +55,9 @@ public class Money : MonoBehaviour
             Debug.Log("Uang Cukup");
             switch(assetName){
                 case "Money Per Second": upgradeTambahMPS(asset, price);
+                break;
+
+                case "Money Per Patient": upgradeMoneyPerPatient(asset, price);
                 break;
 
                 case "Tambah Kamar": upgradeTambahKamar(asset, price);
@@ -209,6 +212,7 @@ public class Money : MonoBehaviour
         } else {
             gameManagerCS.moneyPerSecond += 5;
         }
+        alertUpgrade.SetTrigger("show");
         MPS += 5;
         
         asset.transform.GetChild(0).GetChild(2).GetChild(3).GetComponent<Text>().text = MPS.ToString();
@@ -219,6 +223,32 @@ public class Money : MonoBehaviour
         asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text = price.ToString();
 
         if(gameManagerCS.moneyPerSecond == 95) {
+            maxCard(asset);
+            asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text = "MAX";
+        }
+    }
+
+    void upgradeMoneyPerPatient(GameObject asset, int price) {
+        MoneyValue -= price;
+
+        lvl = int.Parse(asset.transform.GetChild(0).GetChild(2).GetChild(1).GetComponent<Text>().text);
+        lvl += 1;
+        asset.transform.GetChild(0).GetChild(2).GetChild(1).GetComponent<Text>().text = lvl.ToString();
+
+        MPP = int.Parse(asset.transform.GetChild(0).GetChild(2).GetChild(3).GetComponent<Text>().text);
+        gameManagerCS.moneyPlus += 50;
+
+        alertUpgrade.SetTrigger("show");
+        MPP += 50;
+
+        asset.transform.GetChild(0).GetChild(2).GetChild(3).GetComponent<Text>().text = MPP.ToString();
+
+        priceText = asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text;
+        price = int.Parse(priceText.ToString());
+        price += 5000;
+        asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text = price.ToString();
+
+        if(gameManagerCS.moneyPlus == 500) {
             maxCard(asset);
             asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text = "MAX";
         }
