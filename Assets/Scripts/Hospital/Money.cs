@@ -23,6 +23,8 @@ public class Money : MonoBehaviour
     public GameObject gameManagerObj;
     private GameManager gameManagerCS;
     public GameObject menuUpgrade;
+    public GameObject alertSuccess;
+    private Animator alertUpgrade;
 
     public GameObject[] room;
 
@@ -30,6 +32,7 @@ public class Money : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        alertUpgrade = alertSuccess.GetComponent<Animator>();
         gameManagerCS = gameManagerObj.GetComponent<GameManager>();
         eventSystem = GameObject.Find("EventSystem");
         // MoneyValue = int.Parse(MoneyText.text);
@@ -93,6 +96,7 @@ public class Money : MonoBehaviour
 
         eventSystem.SetActive(false);
         yield return new WaitForSeconds(0.8f); 
+        alertUpgrade.SetTrigger("show");
         roomCover[oldTotalRoom].GetComponent<Animator>().SetTrigger("unlock");
         yield return new WaitForSeconds(2f);
         eventSystem.SetActive(true);
@@ -174,6 +178,7 @@ public class Money : MonoBehaviour
             anim.SetBool("isMenuShow", false);
             room[idKamar].transform.GetChild(level-1).gameObject.SetActive(true);
             yield return new WaitForSeconds(0.6f);
+            alertUpgrade.SetTrigger("show");
             room[idKamar].transform.GetChild(level-1).gameObject.GetComponent<Animator>().SetTrigger("fall");
             gameManagerCS.roomLevel[idKamar] += 1;
             eventSystem.SetActive(true);
