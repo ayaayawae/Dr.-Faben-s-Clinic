@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/NewHospital.unity
+    guid: ab0d71d5239f2dd4288eb7bb7af340fc
   m_configObjects: {}

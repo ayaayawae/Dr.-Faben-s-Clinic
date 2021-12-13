@@ -11,7 +11,7 @@ public class Money : MonoBehaviour
     public int DelayAmount = 1;
     public Text MoneyText;
     public GameObject[] roomCover;
-    private int price;
+    private int price, lvl, MPS;
     private string priceText;
     private string assetName;
 
@@ -51,6 +51,9 @@ public class Money : MonoBehaviour
         } else {
             Debug.Log("Uang Cukup");
             switch(assetName){
+                case "Money Per Second": upgradeTambahMPS(asset, price);
+                break;
+
                 case "Tambah Kamar": upgradeTambahKamar(asset, price);
                 break;
                 
@@ -187,4 +190,32 @@ public class Money : MonoBehaviour
     //     int getLevel = gameManagerCS.roomLevel[idKamar];
     //     return getLevel;
     // }
+
+    void upgradeTambahMPS(GameObject asset, int price) {
+        MoneyValue -= price;
+        
+        lvl = int.Parse(asset.transform.GetChild(0).GetChild(2).GetChild(1).GetComponent<Text>().text);
+        lvl += 1;
+        asset.transform.GetChild(0).GetChild(2).GetChild(1).GetComponent<Text>().text = lvl.ToString();
+
+        MPS = int.Parse(asset.transform.GetChild(0).GetChild(2).GetChild(3).GetComponent<Text>().text);
+        if(MPS == 5) {
+            gameManagerCS.moneyPerSecond += 4;
+        } else {
+            gameManagerCS.moneyPerSecond += 5;
+        }
+        MPS += 5;
+        
+        asset.transform.GetChild(0).GetChild(2).GetChild(3).GetComponent<Text>().text = MPS.ToString();
+
+        priceText = asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text;
+        price = int.Parse(priceText.ToString());
+        price += 3000;
+        asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text = price.ToString();
+
+        if(gameManagerCS.moneyPerSecond == 95) {
+            maxCard(asset);
+            asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text = "MAX";
+        }
+    }
 }
