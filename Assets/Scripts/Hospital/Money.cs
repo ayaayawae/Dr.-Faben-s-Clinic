@@ -9,10 +9,10 @@ public class Money : MonoBehaviour
     public int MoneyPlus;
     public int MoneyPerSecond;
     public int DelayAmount = 1;
-    private int price;
     public Text MoneyText;
-    private string assetName;
     public GameObject[] roomCover;
+    private int price;
+    private string assetName;
 
     protected float Timer;
     private int totalRoom;
@@ -45,9 +45,10 @@ public class Money : MonoBehaviour
             Debug.Log("Uang Cukup");
             MoneyValue -= price;
             MoneyText.text = MoneyValue.ToString();
-            if(gameManagerCS.totalRoom != 8){
-                StartCoroutine(unlockRoom());
-            }
+            if(assetName == "Tambah Kamar") {
+                upgradeTambahKamar();
+            } 
+            
         }
     }
 
@@ -61,7 +62,6 @@ public class Money : MonoBehaviour
         gameManagerCS.totalRoom += 1;
     }
 
-
     void increaseMoneyPS() {
         Timer += Time.deltaTime;
 
@@ -72,14 +72,11 @@ public class Money : MonoBehaviour
             MoneyText.text = MoneyValue.ToString();
         }
     }
-    
-    // IEnumerator fadeRoomAnimation(){
-    //     for(float i = 1.0f; i > 0; i -= 0.1f){
-    //         roomCover[gameManagerCS.totalRoom-1].transform.GetChild(0).GetComponent<MeshRenderer>().material.color = new Color(0, 0, 0, i);
-    //         Debug.Log(i);
-    //         yield return new WaitForSeconds(0.5f);
-    //     }
-    //     roomCover[gameManagerCS.totalRoom-1].SetActive(false);
-    //     gameManagerCS.totalRoom += 1;
-    // }
+
+    void upgradeTambahKamar() {
+        if(gameManagerCS.totalRoom != 8){
+            StartCoroutine(unlockRoom());
+        }
+        gameManagerCS.moneyPerSecond += 5;
+    }
 }

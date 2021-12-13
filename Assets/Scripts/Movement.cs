@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
     bool begin = true;
     bool firstTurnExit = false;
 
-    int onProgress = 3;
+    // int onProgress = 3;
     
 
     public Text MoneyText;
@@ -24,6 +24,7 @@ public class Movement : MonoBehaviour
     public GameObject moneyObj;
     int MoneyPlus;
 
+    private GameManager gameManagerCs;
     public GameObject gameManagerObj;
     private int totalRoom;
 
@@ -34,9 +35,11 @@ public class Movement : MonoBehaviour
     void Start()
     {
         moneyCs = moneyObj.GetComponent<Money>();
+        gameManagerCs = gameManagerObj.GetComponent<GameManager>();
+
         MoneyPlus = moneyCs.MoneyPlus;
 
-        totalRoom = gameManagerObj.GetComponent<GameManager>().totalRoom + 1;
+        totalRoom = gameManagerCs.totalRoom + 1;
         room = Random.Range(1, totalRoom);
         transform.localPosition = new Vector3(-0.3009744f, 1.55f, -20.11f);
         transform.rotation = Quaternion.identity;
@@ -89,7 +92,7 @@ public class Movement : MonoBehaviour
     }
 
     IEnumerator onDoctor(){
-        yield return new WaitForSeconds(onProgress);
+        yield return new WaitForSeconds(gameManagerCs.progressTime);
         MoneyValue = int.Parse(MoneyText.text);
         MoneyValue += MoneyPlus;
         MoneyText.text = MoneyValue.ToString();

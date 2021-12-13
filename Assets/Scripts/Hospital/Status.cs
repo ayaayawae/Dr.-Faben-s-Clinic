@@ -5,22 +5,30 @@ using UnityEngine.UI;
 
 public class Status : MonoBehaviour
 {
-    public Money moneyCs;
-    public GameObject moneyObj;
-    public Text moneyPsText, moneyPlus;
+    // public Money moneyCs;
+    // public GameObject moneyObj;
+
+    private GameManager gameManagerCs;
+    public GameObject gameManagerObj;
+
+    public Text moneyPsText, moneyPlus, progressTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        moneyCs = moneyObj.GetComponent<Money>();
+        // moneyCs = moneyObj.GetComponent<Money>();
+        gameManagerCs = gameManagerObj.GetComponent<GameManager>();
+
         moneyPsText = this.transform.GetChild(0).GetComponent<Text>();
         moneyPlus = this.transform.GetChild(1).GetComponent<Text>();
+        progressTime = this.transform.GetChild(2).GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        moneyPsText.text = "Money Per Second : " + moneyCs.MoneyPerSecond.ToString();
-        moneyPlus.text = "Money Plus : " + moneyCs.MoneyPlus.ToString();
+        moneyPsText.text = "Money Per Second : " + gameManagerCs.moneyPerSecond.ToString();
+        moneyPlus.text = "Money Plus : " + gameManagerCs.moneyPlus.ToString();
+        progressTime.text = "ProgressTime : " + gameManagerCs.progressTime.ToString();
     }
 }

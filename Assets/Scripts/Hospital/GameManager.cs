@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     private Money moneyCs;
 
     public int totalRoom = 1;
+    public int progressTime = 3;
 
 
     // Start is called before the first frame update
