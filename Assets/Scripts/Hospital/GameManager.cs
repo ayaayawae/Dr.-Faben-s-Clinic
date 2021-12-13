@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     public int totalRoom = 1;
     public int progressTime = 3;
 
+    public int[] roomLevel;
+    
+
 
     // Start is called before the first frame update
     void Start()

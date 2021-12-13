@@ -23,7 +23,6 @@ public class PeopleSpawner : MonoBehaviour
     void Update()
     {
         timeBetweenSpawns = gameManagerObj.GetComponent<GameManager>().timeBetweenSpawns;
-        Debug.Log(timeBetweenSpawns);
     }
     
     void FixedUpdate()
