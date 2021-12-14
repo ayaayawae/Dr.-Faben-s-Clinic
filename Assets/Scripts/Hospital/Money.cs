@@ -28,7 +28,7 @@ public class Money : MonoBehaviour
     private Animator alertUpgrade, alertUpgradeGagal;
 
     public GameObject[] room;
-
+    public GameObject coinImageObj;
 
     // Start is called before the first frame update
     void Start()
@@ -272,6 +272,10 @@ public class Money : MonoBehaviour
     public void moneyOnClick() {
         MoneyValue += gameManagerCS.moneyOnClick;
         MoneyText.text = MoneyValue.ToString();
+
+        GameObject duplicateCoin = Instantiate(coinImageObj, Input.mousePosition, Quaternion.identity);
+        
+        duplicateCoin.transform.parent = coinImageObj.transform;
     }
 
     void upgradeMoneyPerClick(GameObject asset, int price) {
