@@ -8,6 +8,7 @@ public class Money : MonoBehaviour
     public int MoneyValue;
     public int MoneyPlus;
     public int MoneyPerSecond;
+    public int MoneyOnClick;
     public int DelayAmount = 1;
     public Text MoneyText;
     public GameObject[] roomCover;
@@ -58,6 +59,9 @@ public class Money : MonoBehaviour
                 break;
 
                 case "Money Per Patient": upgradeMoneyPerPatient(asset, price);
+                break;
+
+                case "Money Per Click": upgradeMoneyPerClick(asset, price);
                 break;
 
                 case "Tambah Kamar": upgradeTambahKamar(asset, price);
@@ -176,6 +180,10 @@ public class Money : MonoBehaviour
             Debug.Log("sini");
             MoneyValue -= price; 
 
+            lvl = int.Parse(asset.transform.GetChild(0).GetChild(2).GetChild(1).GetComponent<Text>().text);
+            lvl += 1;
+            asset.transform.GetChild(0).GetChild(2).GetChild(1).GetComponent<Text>().text = lvl.ToString();
+
             eventSystem.SetActive(false);
             Animator anim = menuUpgrade.GetComponent<Animator>();
             anim.SetBool("isMenuShow", false);
@@ -186,9 +194,12 @@ public class Money : MonoBehaviour
             gameManagerCS.roomLevel[idKamar] += 1;
             eventSystem.SetActive(true);
 
+            gameManagerCS.moneyPerSecond += 10;
+
             if(gameManagerCS.roomLevel[idKamar] == 3) {
                 maxCard(asset);
                 asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text = "MAX";
+                asset.transform.GetChild(0).GetChild(2).GetChild(1).GetComponent<Text>().text = "MAX";
             }
         }else{
             Debug.Log("Ruangan belum terbuka atau sudah mentok level");
@@ -206,23 +217,24 @@ public class Money : MonoBehaviour
         lvl += 1;
         asset.transform.GetChild(0).GetChild(2).GetChild(1).GetComponent<Text>().text = lvl.ToString();
 
-        MPS = int.Parse(asset.transform.GetChild(0).GetChild(2).GetChild(3).GetComponent<Text>().text);
-        if(MPS == 5) {
-            gameManagerCS.moneyPerSecond += 4;
-        } else {
-            gameManagerCS.moneyPerSecond += 5;
-        }
+        // MPS = int.Parse(asset.transform.GetChild(0).GetChild(2).GetChild(3).GetComponent<Text>().text);
+        // if(MPS == 5) {
+        //     gameManagerCS.moneyPerSecond += 4;
+        // } else {
+        //     gameManagerCS.moneyPerSecond += 5;
+        // }
+        gameManagerCS.moneyPerSecond += 5;
         alertUpgrade.SetTrigger("show");
-        MPS += 5;
+        // MPS += 5;
         
-        asset.transform.GetChild(0).GetChild(2).GetChild(3).GetComponent<Text>().text = MPS.ToString();
+        // asset.transform.GetChild(0).GetChild(2).GetChild(3).GetComponent<Text>().text = MPS.ToString();
 
         priceText = asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text;
         price = int.Parse(priceText.ToString());
         price += 3000;
         asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text = price.ToString();
 
-        if(gameManagerCS.moneyPerSecond == 95) {
+        if(price == 59000) {
             maxCard(asset);
             asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text = "MAX";
         }
@@ -249,6 +261,32 @@ public class Money : MonoBehaviour
         asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text = price.ToString();
 
         if(gameManagerCS.moneyPlus == 500) {
+            maxCard(asset);
+            asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text = "MAX";
+        }
+    }
+
+    public void moneyOnClick() {
+        MoneyValue += gameManagerCS.moneyOnClick;
+        MoneyText.text = MoneyValue.ToString();
+    }
+
+    void upgradeMoneyPerClick(GameObject asset, int price) {
+        MoneyValue -= price;
+        
+        lvl = int.Parse(asset.transform.GetChild(0).GetChild(2).GetChild(1).GetComponent<Text>().text);
+        lvl += 1;
+        asset.transform.GetChild(0).GetChild(2).GetChild(1).GetComponent<Text>().text = lvl.ToString();
+
+        gameManagerCS.moneyOnClick += 1;
+        alertUpgrade.SetTrigger("show");
+
+        priceText = asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text;
+        price = int.Parse(priceText.ToString());
+        price += 5000;
+        asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text = price.ToString();
+
+        if(price == 50000) {
             maxCard(asset);
             asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text = "MAX";
         }

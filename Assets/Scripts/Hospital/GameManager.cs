@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public Slider timeScaleSlider;
 
     public GameObject moneyObj;
-    public int moneyValue, moneyPlus, moneyPerSecond;
+    public int moneyValue, moneyPlus, moneyPerSecond, moneyOnClick;
 
     public GameObject peopleSpawnerObj;
     public float timeBetweenSpawns;
@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
         moneyValue = moneyCs.MoneyValue;
         moneyPlus = moneyCs.MoneyPlus;
         moneyPerSecond = moneyCs.MoneyPerSecond;
+        moneyOnClick = moneyCs.MoneyOnClick;
 
         // timeBetweenSpawns = peopleSpawnerCs.timeBetweenSpawns;
     }
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
         moneyCs.MoneyValue = moneyValue;
         moneyCs.MoneyPlus = moneyPlus;
         moneyCs.MoneyPerSecond = moneyPerSecond;
+        moneyCs.MoneyOnClick = moneyOnClick;
     }
 
     public void timeScaleChange() {
