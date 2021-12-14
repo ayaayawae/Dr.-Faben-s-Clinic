@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/MainMenu/Scenes teori/MainMenu.unity
+    guid: bf6297f6f28b6ec4597e6d993ee0b39e
+  - enabled: 1
     path: Assets/NewHospital.unity
     guid: ab0d71d5239f2dd4288eb7bb7af340fc
   m_configObjects: {}

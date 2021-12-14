@@ -24,8 +24,8 @@ public class Money : MonoBehaviour
     public GameObject gameManagerObj;
     private GameManager gameManagerCS;
     public GameObject menuUpgrade;
-    public GameObject alertSuccess;
-    private Animator alertUpgrade;
+    public GameObject alertSuccess, alertGagal;
+    private Animator alertUpgrade, alertUpgradeGagal;
 
     public GameObject[] room;
 
@@ -34,6 +34,7 @@ public class Money : MonoBehaviour
     void Start()
     {
         alertUpgrade = alertSuccess.GetComponent<Animator>();
+        alertUpgradeGagal = alertGagal.GetComponent<Animator>();
         gameManagerCS = gameManagerObj.GetComponent<GameManager>();
         eventSystem = GameObject.Find("EventSystem");
         // MoneyValue = int.Parse(MoneyText.text);
@@ -50,6 +51,7 @@ public class Money : MonoBehaviour
         price = int.Parse(asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text.ToString());
         
         if(MoneyValue < price) {
+            alertUpgradeGagal.SetTrigger("show");
             Debug.Log("Uang tidak Cukup");
             Debug.Log(assetName);
         } else {
@@ -202,6 +204,7 @@ public class Money : MonoBehaviour
                 asset.transform.GetChild(0).GetChild(2).GetChild(1).GetComponent<Text>().text = "MAX";
             }
         }else{
+            alertUpgradeGagal.SetTrigger("show");
             Debug.Log("Ruangan belum terbuka atau sudah mentok level");
         }
     }

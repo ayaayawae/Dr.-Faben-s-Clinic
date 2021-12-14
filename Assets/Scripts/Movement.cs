@@ -110,9 +110,13 @@ public class Movement : MonoBehaviour
     IEnumerator onDoctor(){
         transform.GetChild(2).gameObject.SetActive(false);
         yield return new WaitForSeconds(gameManagerCs.progressTime);
-        MoneyValue = int.Parse(MoneyText.text);
-        MoneyValue += MoneyPlus;
-        MoneyText.text = MoneyValue.ToString();
+        // MoneyValue = int.Parse(MoneyText.text);
+        // MoneyValue += MoneyPlus;
+        // MoneyText.text = MoneyValue.ToString();
+        
+        moneyCs.MoneyValue += MoneyPlus;
+        MoneyText.text = moneyCs.MoneyValue.ToString();
+
         gameManagerCs.roomIsFilled[room-1] = 0;
 
         toggleDoor(room);
