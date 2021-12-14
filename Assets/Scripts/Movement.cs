@@ -26,7 +26,6 @@ public class Movement : MonoBehaviour
 
     private GameManager gameManagerCs;
     public GameObject gameManagerObj;
-    private int totalRoom;
 
     public int speed = 3;
 
@@ -39,9 +38,11 @@ public class Movement : MonoBehaviour
 
         MoneyPlus = moneyCs.MoneyPlus;
 
-        totalRoom = gameManagerCs.totalRoom + 1;
-        room = Random.Range(1, totalRoom);
-        transform.localPosition = new Vector3(-0.3009744f, 1.55f, -20.11f);
+        string peopleName = transform.name;
+        room = int.Parse(peopleName.Substring(peopleName.Length -1, 1));
+
+        // Start Position
+        transform.localPosition = new Vector3(-0.3009744f, 1.55f, -28.11f);
         transform.rotation = Quaternion.identity;
     }
 
@@ -129,6 +130,4 @@ public class Movement : MonoBehaviour
         }
         // door1.SetBool("open", false);
     }
-
-    
 }

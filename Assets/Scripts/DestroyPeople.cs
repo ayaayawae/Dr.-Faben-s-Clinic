@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class DestroyPeople : MonoBehaviour
 {
+    public GameObject gameManagerObj;
+    private GameManager gameManagerCs;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManagerCs = gameManagerObj.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -18,8 +21,11 @@ public class DestroyPeople : MonoBehaviour
 
     public void OnTriggerEnter (Collider col){
         GameObject peopleExit = GameObject.Find(col.gameObject.name);
-        if(peopleExit.name != "People"){
-            Destroy(peopleExit);
-        }
+        string peopleName = peopleExit.name;
+        int room = int.Parse(peopleName.Substring(peopleExit.name.Length-1, 1));
+        Destroy(peopleExit);
+        gameManagerCs.roomIsFilled[room-1] = 0;
+        // if(peopleExit.name != "People"){
+        // }
     }
 }

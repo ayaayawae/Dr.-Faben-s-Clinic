@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public int progressTime = 3;
 
     public int[] roomLevel;
+    public int[] roomIsFilled;
     
 
 
