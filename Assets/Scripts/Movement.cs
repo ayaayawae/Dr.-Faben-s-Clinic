@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour
     public int speed = 3;
 
     public Animator door1, door2, door3, door4, door5, door6, door7, door8;
-
+    public GameObject[] alert;
     Quaternion iniRot;
 
     void Start()
@@ -120,6 +120,13 @@ public class Movement : MonoBehaviour
         transform.position += -transform.forward;
         begin = false;
         transform.GetChild(1).gameObject.SetActive(true);
+        StartCoroutine(alertProfit());
+    }
+
+    IEnumerator alertProfit(){
+        alert[room-1].SetActive(true);
+        yield return new WaitForSeconds(2);
+        alert[room-1].SetActive(false);
     }
 
     void FixedUpdate(){
