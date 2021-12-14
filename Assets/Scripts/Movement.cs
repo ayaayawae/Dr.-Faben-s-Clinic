@@ -31,6 +31,8 @@ public class Movement : MonoBehaviour
 
     public Animator door1, door2, door3, door4, door5, door6, door7, door8;
 
+    Quaternion iniRot;
+
     void Start()
     {
         moneyCs = moneyObj.GetComponent<Money>();
@@ -44,6 +46,9 @@ public class Movement : MonoBehaviour
         // Start Position
         transform.localPosition = new Vector3(-0.3009744f, 1.55f, -28.11f);
         transform.rotation = Quaternion.identity;
+
+        iniRot = transform.GetChild(0).gameObject.transform.rotation;
+        transform.GetChild(2).gameObject.SetActive(true);
     }
 
     void Awake(){
@@ -97,10 +102,13 @@ public class Movement : MonoBehaviour
     }
 
     void cancel(){
+        transform.GetChild(2).gameObject.SetActive(false);
+        transform.GetChild(0).gameObject.SetActive(true);
         transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
     }
 
     IEnumerator onDoctor(){
+        transform.GetChild(2).gameObject.SetActive(false);
         yield return new WaitForSeconds(gameManagerCs.progressTime);
         MoneyValue = int.Parse(MoneyText.text);
         MoneyValue += MoneyPlus;
@@ -111,6 +119,7 @@ public class Movement : MonoBehaviour
         transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
         transform.position += -transform.forward;
         begin = false;
+        transform.GetChild(1).gameObject.SetActive(true);
     }
 
     void FixedUpdate(){
@@ -137,5 +146,11 @@ public class Movement : MonoBehaviour
             default: break;
         }
         // door1.SetBool("open", false);
+    }
+
+    void LateUpdate(){
+        transform.GetChild(0).gameObject.transform.rotation = iniRot;
+        transform.GetChild(1).gameObject.transform.rotation = iniRot;
+        transform.GetChild(2).gameObject.transform.rotation = iniRot;
     }
 }
