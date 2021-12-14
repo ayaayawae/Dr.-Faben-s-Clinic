@@ -21,10 +21,9 @@ public class DestroyPeople : MonoBehaviour
 
     public void OnTriggerEnter (Collider col){
         GameObject peopleExit = GameObject.Find(col.gameObject.name);
-        string peopleName = peopleExit.name;
-        int room = int.Parse(peopleName.Substring(peopleExit.name.Length-1, 1));
+        // string peopleName = peopleExit.name;
+        // int room = int.Parse(peopleName.Substring(peopleExit.name.Length-1, 1));
         Destroy(peopleExit);
-        gameManagerCs.roomIsFilled[room-1] = 0;
         // if(peopleExit.name != "People"){
         // }
     }

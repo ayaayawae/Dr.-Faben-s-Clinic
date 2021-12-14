@@ -67,16 +67,20 @@ public class Movement : MonoBehaviour
             StartCoroutine(goToExit());
         }else{
             if(room.ToString() == col.gameObject.name){
-                toggleDoor(room);
-                if(room  < 5){
-                    transform.Rotate(0.0f, -90.0f, 0.0f, Space.Self);
+                if(gameManagerCs.roomIsFilled[room-1] == 1) {
+                    cancel();
                 }else{
-                    transform.Rotate(0.0f, 90.0f, 0.0f, Space.Self);
+                    toggleDoor(room);
+                    gameManagerCs.roomIsFilled[room-1] = 1;
+                    if(room  < 5){
+                        transform.Rotate(0.0f, -90.0f, 0.0f, Space.Self);
+                    }else{
+                        transform.Rotate(0.0f, 90.0f, 0.0f, Space.Self);
+                    }
                 }
             }else if (col.gameObject.name == "Stop"){
                 stop = true;
                 StartCoroutine(onDoctor());
-                
             }
         }
     }
@@ -92,11 +96,16 @@ public class Movement : MonoBehaviour
         firstTurnExit = true;
     }
 
+    void cancel(){
+        transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
+    }
+
     IEnumerator onDoctor(){
         yield return new WaitForSeconds(gameManagerCs.progressTime);
         MoneyValue = int.Parse(MoneyText.text);
         MoneyValue += MoneyPlus;
         MoneyText.text = MoneyValue.ToString();
+        gameManagerCs.roomIsFilled[room-1] = 0;
 
         toggleDoor(room);
         transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
@@ -105,7 +114,6 @@ public class Movement : MonoBehaviour
     }
 
     void FixedUpdate(){
-        
     }
 
     void toggleDoor(int doorNum){

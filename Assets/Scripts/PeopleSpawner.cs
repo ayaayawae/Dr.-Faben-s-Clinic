@@ -44,14 +44,14 @@ public class PeopleSpawner : MonoBehaviour
     void SpawnPeople()
     {
         int room = Random.Range(1, totalRoom);
-        if(checkRoom(room)){
+        // if(checkRoom(room)){
             int peopleType = Random.Range(0, 7);
             GameObject prefab = people[peopleType];
             GameObject spawn = Instantiate<GameObject>(prefab);
-            spawn.name = "People " + room;
+            spawn.name = "People" + i + " " + room;
             spawn.SetActive(true);
             spawn.transform.localPosition = Random.onUnitSphere * spawnDistance;
-        }
+        // }
         
     }
 
