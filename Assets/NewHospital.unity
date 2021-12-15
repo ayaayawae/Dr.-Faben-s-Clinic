@@ -481,7 +481,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -146, y: -175.48}
+  m_AnchoredPosition: {x: -146, y: -175.5}
   m_SizeDelta: {x: 162.9882, y: 63.4734}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9122119
@@ -1525,7 +1525,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -265, y: -61.117}
+  m_AnchoredPosition: {x: -265, y: -61.125}
   m_SizeDelta: {x: 245.9233, y: 46.1106}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &42868631
@@ -1675,7 +1675,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 150.143, y: 477.61115}
+  m_AnchoredPosition: {x: 150.125, y: 477.61115}
   m_SizeDelta: {x: 300.286, y: 124.7777}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &49313340
@@ -34498,7 +34498,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -229.36, y: -62.39}
+  m_AnchoredPosition: {x: -229.375, y: -62.375}
   m_SizeDelta: {x: 458.7187, y: 124.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1033894802
@@ -50749,7 +50749,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1268474096}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -61319,7 +61319,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 140, y: -172.2}
+  m_AnchoredPosition: {x: 140, y: -172.1875}
   m_SizeDelta: {x: 184.01294, y: 70.0431}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1785935010
@@ -72813,12 +72813,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
