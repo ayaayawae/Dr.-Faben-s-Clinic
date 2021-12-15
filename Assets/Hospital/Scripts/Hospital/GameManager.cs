@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     private Money moneyCs;
 
     public int totalRoom = 1;
-    public int progressTime = 3;
+    public float progressTime = 3;
 
     public int[] roomLevel;
     public int[] roomIsFilled;

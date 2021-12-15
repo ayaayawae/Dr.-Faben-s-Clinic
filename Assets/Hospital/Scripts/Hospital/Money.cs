@@ -69,28 +69,28 @@ public class Money : MonoBehaviour
                 case "Tambah Kamar": upgradeTambahKamar(asset, price);
                 break;
                 
-                case "Ruangan 1": StartCoroutine(upgradeLevelKamar(0, price, asset));
+                case "Dokter Umum": StartCoroutine(upgradeLevelKamar(0, price, asset));
                 break;
                 
-                case "Ruangan 2": StartCoroutine(upgradeLevelKamar(1, price, asset));
+                case "Dokter Hewan": StartCoroutine(upgradeLevelKamar(1, price, asset));
                 break;
                 
-                case "Ruangan 3": StartCoroutine(upgradeLevelKamar(2, price, asset));
+                case "Dokter Kandungan": StartCoroutine(upgradeLevelKamar(2, price, asset));
                 break;
                 
-                case "Ruangan 4": StartCoroutine(upgradeLevelKamar(3, price, asset));
+                case "Orthopedi": StartCoroutine(upgradeLevelKamar(3, price, asset));
                 break;
                 
-                case "Ruangan 5": StartCoroutine(upgradeLevelKamar(4, price, asset));
+                case "Dokter Gigi": StartCoroutine(upgradeLevelKamar(4, price, asset));
                 break;
                 
-                case "Ruangan 6": StartCoroutine(upgradeLevelKamar(5, price, asset));
+                case "Dokter Mata": StartCoroutine(upgradeLevelKamar(5, price, asset));
                 break;
             
-                case "Ruangan 7": StartCoroutine(upgradeLevelKamar(6, price, asset));
+                case "Dokter Jantung": StartCoroutine(upgradeLevelKamar(6, price, asset));
                 break;
 
-                case "Ruangan 8": StartCoroutine(upgradeLevelKamar(7, price, asset));
+                case "Dokter Cinta": StartCoroutine(upgradeLevelKamar(7, price, asset));
                 break;
             }
             MoneyText.text = MoneyValue.ToString();
@@ -140,7 +140,8 @@ public class Money : MonoBehaviour
 
             enableCard(asset);
             
-            // gameManagerCS.moneyPerSecond += 5;
+            gameManagerCS.timeBetweenSpawns -= 0.5f;
+            gameManagerCS.progressTime -= 0.2f;
 
             if(gameManagerCS.totalRoom == 8) {
                 asset.transform.GetChild(0).GetChild(2).GetChild(0).GetComponent<Text>().text = "Level : MAX";

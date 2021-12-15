@@ -11,7 +11,7 @@ public class Status : MonoBehaviour
     private GameManager gameManagerCs;
     public GameObject gameManagerObj;
 
-    public Text moneyPsText, moneyPlus, progressTime, moneyOnClick;
+    public Text moneyPsText, moneyPlus, progressTime, moneyOnClick, spawnTime;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,7 @@ public class Status : MonoBehaviour
         moneyPlus = this.transform.GetChild(1).GetComponent<Text>();
         progressTime = this.transform.GetChild(2).GetComponent<Text>();
         moneyOnClick = this.transform.GetChild(3).GetComponent<Text>();
+        spawnTime = this.transform.GetChild(4).GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -32,5 +33,6 @@ public class Status : MonoBehaviour
         moneyPlus.text = "Money Plus : " + gameManagerCs.moneyPlus.ToString();
         progressTime.text = "ProgressTime : " + gameManagerCs.progressTime.ToString();
         moneyOnClick.text = "Money Per Click : " + gameManagerCs.moneyOnClick.ToString();
+        spawnTime.text = "Spawn Time: " + gameManagerCs.timeBetweenSpawns.ToString();
     }
 }
