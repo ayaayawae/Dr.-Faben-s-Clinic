@@ -6443,7 +6443,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Another Status
+  m_Text: Status
 --- !u!222 &176530344
 CanvasRenderer:
   m_ObjectHideFlags: 0

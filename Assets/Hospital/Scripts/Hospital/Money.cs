@@ -44,6 +44,8 @@ public class Money : MonoBehaviour
     void Update()
     {
         increaseMoneyPS();
+        
+        cheat();
     }
 
     public void upgradeAsset(GameObject asset) {
@@ -298,6 +300,12 @@ public class Money : MonoBehaviour
         if(price == 50000) {
             maxCard(asset);
             asset.transform.GetChild(0).GetChild(4).GetComponent<Text>().text = "MAX";
+        }
+    }
+
+    void cheat() {
+        if(Input.GetKey(KeyCode.O) && Input.GetKey(KeyCode.P) && Input.GetKey(KeyCode.B)) {
+            MoneyText.text = "1000000";
         }
     }
 }
