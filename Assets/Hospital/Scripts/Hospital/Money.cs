@@ -305,7 +305,7 @@ public class Money : MonoBehaviour
 
     void cheat() {
         if(Input.GetKey(KeyCode.O) && Input.GetKey(KeyCode.P) && Input.GetKey(KeyCode.B)) {
-            MoneyText.text = "1000000";
+            MoneyText.text = (gameManagerCS.moneyValue += 1000000).ToString();
         }
     }
 }
