@@ -275,7 +275,8 @@ public class Money : MonoBehaviour
 
         GameObject duplicateCoin = Instantiate(coinImageObj, Input.mousePosition, Quaternion.identity);
         
-        duplicateCoin.transform.parent = coinImageObj.transform;
+        duplicateCoin.transform.SetParent(coinImageObj.transform.parent); 
+        duplicateCoin.SetActive(true);
     }
 
     void upgradeMoneyPerClick(GameObject asset, int price) {
